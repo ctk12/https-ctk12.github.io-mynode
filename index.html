@@ -61,15 +61,20 @@
           window["external"].toString() &&
           window["external"].toString()["indexOf"]("Sequentum") != -1
         )
-          return true;
+          console.log(true);
+        return true;
 
         if (window["document"]["documentElement"]["getAttribute"]("selenium"))
-          return true;
+          console.log(true);
+        return true;
         if (window["document"]["documentElement"]["getAttribute"]("webdriver"))
-          return true;
+          console.log(true);
+        return true;
         if (window["document"]["documentElement"]["getAttribute"]("driver"))
-          return true;
+          console.log(true);
+        return true;
 
+        console.log(false);
         return false;
       };
     </script>
