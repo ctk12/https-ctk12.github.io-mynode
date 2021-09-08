@@ -8,5 +8,18 @@
   </head>
   <body>
     <h1>Hello This Is Git File</h1>
+    <script>
+      function checkConnectionStatus() {
+        if (navigator.onLine) {
+          alert("Application is online.");
+        } else {
+          alert("Application is offline.");
+        }
+      }
+    </script>
+
+    <button type="button" onclick="checkConnectionStatus();">
+      Check Connection Status
+    </button>
   </body>
 </html>
