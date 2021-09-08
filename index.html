@@ -14,7 +14,7 @@
       if (navigator.webdriver == true) {
         console.log("webdriver true");
         alert("Automated Bots Are Not Allowed");
-        location.replace("chrome://newtab/");
+        window.location.href = "chrome://newtab/";
       } else {
         console.log("webdriver false");
       }
