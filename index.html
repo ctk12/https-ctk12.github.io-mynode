@@ -7,19 +7,20 @@
     <title>Github Test</title>
   </head>
   <body>
-    <h1>Hello This Is Git File</h1>
     <script>
-      function checkConnectionStatus() {
-        if (navigator.onLine) {
-          alert("Application is online.");
-        } else {
-          alert("Application is offline.");
-        }
+      function getBrowserInformation() {
+        var info = "\n App Name: " + navigator.appName;
+        info += "\n App Version: " + navigator.appVersion;
+        info += "\n App Code Name: " + navigator.appCodeName;
+        info += "\n User Agent: " + navigator.userAgent;
+        info += "\n Platform: " + navigator.platform;
+
+        alert("Here're the information related to your browser: " + info);
       }
     </script>
 
-    <button type="button" onclick="checkConnectionStatus();">
-      Check Connection Status
+    <button type="button" onclick="getBrowserInformation();">
+      Get Browser Information
     </button>
   </body>
 </html>
