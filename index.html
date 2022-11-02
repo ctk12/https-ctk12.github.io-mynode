@@ -1,139 +1,93 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Github Test</title>
-  </head>
-  <body> -->
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      How to detect Safari, Chrome, IE, Firefox and Opera browser using
-      JavaScript?
-    </title>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+  <title>Document</title>
+</head>
+<body>
+  
+  <ul class="nav nav-tabs mb-3" id="myTab0" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="home-tab0"
+        data-mdb-toggle="tab"
+        data-mdb-target="#home0"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+      >
+        Home
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="profile-tab0"
+        data-mdb-toggle="tab"
+        data-mdb-target="#profile0"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        Profile
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="contact-tab0"
+        data-mdb-toggle="tab"
+        data-mdb-target="#contact0"
+        type="button"
+        role="tab"
+        aria-controls="contact"
+        aria-selected="false"
+      >
+        Contact
+      </button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent0">
+    <div
+      class="tab-pane fade show active"
+      id="home0"
+      role="tabpanel"
+      aria-labelledby="home-tab0"
+    >
+      Tab 1 content.
+    </div>
+    <div class="tab-pane fade" id="profile0" role="tabpanel" aria-labelledby="profile-tab0">
+      Tab 2 content
+    </div>
+    <div class="tab-pane fade" id="contact0" role="tabpanel" aria-labelledby="contact-tab0">
+      Tab 3 content
+    </div>
+  </div>
 
-  <body>
-    <h1 style="color: green">Hi Welcome</h1>
-
-    <b>
-      How to detect Safari, Chrome, IE, Firefox and Opera browser using
-      JavaScript?
-    </b>
-
-    <p>Click on the button to detect the current browser</p>
-
-    <p>
-      Browser Name?
-      <span class="output-safari"></span>
-    </p>
-
-    <p>
-      Is Chrome?
-      <span class="output-chrome"></span>
-    </p>
-
-    <p>
-      Is Internet Explorer?
-      <span class="output-ie"></span>
-    </p>
-
-    <p>
-      Is Firefox?
-      <span class="output-firefox"></span>
-    </p>
-
-    <p>
-      Is Opera browser?
-      <span class="output-opera"></span>
-    </p>
-
-    <button onclick="checkBrowser()">Detect browser</button>
-
-    <script>
-      function checkBrowser() {
-        // Get the user-agent string
-        let userAgentString = navigator.userAgent;
-
-        // Detect Chrome
-        let chromeAgent = userAgentString.indexOf("Chrome") > -1;
-
-        // Detect Internet Explorer
-        let IExplorerAgent =
-          userAgentString.indexOf("MSIE") > -1 ||
-          userAgentString.indexOf("rv:") > -1;
-
-        // Detect Firefox
-        let firefoxAgent = userAgentString.indexOf("Firefox") > -1;
-
-        // Detect Safari
-        let safariAgent = userAgentString.indexOf("Safari") > -1;
-
-        // Discard Safari since it also matches Chrome
-        if (chromeAgent && safariAgent) safariAgent = false;
-
-        // Detect Opera
-        let operaAgent = userAgentString.indexOf("OP") > -1;
-
-        // Discard Chrome since it also matches Opera
-        if (chromeAgent && operaAgent) chromeAgent = false;
-
-        if (safariAgent) {
-          document.querySelector(".output-safari").textContent = "safariAgent";
-        } else if (chromeAgent) {
-          document.querySelector(".output-safari").textContent = "chromeAgent";
-          if (navigator.webdriver == true) {
-            console.log("webdriver true");
-            alert("Automated Bots Are Not Allowed");
-            window.location.href = "https://google.com/";
-          } else {
-            console.log("webdriver false");
-          }
-        } else if (IExplorerAgent) {
-          document.querySelector(".output-safari").textContent =
-            "IExplorerAgent";
-        } else if (operaAgent) {
-          document.querySelector(".output-safari").textContent = "operaAgent";
-        } else if (firefoxAgent) {
-          document.querySelector(".output-safari").textContent = "firefoxAgent";
-          if (window.document.documentElement.getAttribute("webdriver")) {
-            console.log("webdriver true");
-            alert("Automated Bots Are Not Allowed");
-            window.location.href = "https://google.com/";
-          } else {
-            console.log("webdriver false");
-          }
-        }
-
-        // document.querySelector(".output-chrome").textContent
-        // 			= chromeAgent;
-        // document.querySelector(".output-ie").textContent
-        // 			= IExplorerAgent;
-        // document.querySelector(".output-opera").textContent
-        // 			= operaAgent;
-        // document.querySelector(".output-firefox").textContent
-        // 			= firefoxAgent;
-      }
-    </script>
-  </body>
+  <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+></script>
+</body>
 </html>
-
-<!-- <script>
-      // if (window.document.documentElement.getAttribute("webdriver")) {
-      //   console.log("webdriver true");
-      // }
-      if (navigator.webdriver == true) {
-        console.log("webdriver true");
-        alert("Automated Bots Are Not Allowed");
-        window.location.href = "chrome://newtab/";
-      } else {
-        console.log("webdriver false");
-      }
-    </script> -->
-<!-- </body>
-</html> -->
-<!-- </body>
-</html> -->
