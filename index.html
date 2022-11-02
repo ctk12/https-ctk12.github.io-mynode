@@ -1,93 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Font Awesome -->
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-rel="stylesheet"
-/>
-<!-- Google Fonts -->
-<link
-href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-rel="stylesheet"
-/>
-<!-- MDB -->
-<link
-href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
-rel="stylesheet"
-/>
-  <title>Document</title>
-</head>
-<body>
-  
-  <ul class="nav nav-tabs mb-3" id="myTab0" role="tablist">
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link active"
-        id="home-tab0"
-        data-mdb-toggle="tab"
-        data-mdb-target="#home0"
-        type="button"
-        role="tab"
-        aria-controls="home"
-        aria-selected="true"
-      >
-        Home
-      </button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link"
-        id="profile-tab0"
-        data-mdb-toggle="tab"
-        data-mdb-target="#profile0"
-        type="button"
-        role="tab"
-        aria-controls="profile"
-        aria-selected="false"
-      >
-        Profile
-      </button>
-    </li>
-    <li class="nav-item" role="presentation">
-      <button
-        class="nav-link"
-        id="contact-tab0"
-        data-mdb-toggle="tab"
-        data-mdb-target="#contact0"
-        type="button"
-        role="tab"
-        aria-controls="contact"
-        aria-selected="false"
-      >
-        Contact
-      </button>
-    </li>
-  </ul>
-  <div class="tab-content" id="myTabContent0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      .p {
+        /* background-color: black; */
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+        margin: auto;
+        width: fit-content;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Tabs navs -->
+    <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a
+          style="font-size: 1.5rem"
+          class="nav-link active"
+          id="ex3-tab-1"
+          data-mdb-toggle="tab"
+          href="#ex3-tabs-1"
+          role="tab"
+          aria-controls="ex3-tabs-1"
+          aria-selected="true"
+          >Letters - English</a
+        >
+      </li>
+    </ul>
+    <!-- Tabs navs -->
     <div
-      class="tab-pane fade show active"
-      id="home0"
-      role="tabpanel"
-      aria-labelledby="home-tab0"
+      class="d-flex align-content-stretch flex-wrap flex-column flex-sm-column flex-lg-row flex-md-row flex-xl-row flex-xxl-row"
     >
-      Tab 1 content.
-    </div>
-    <div class="tab-pane fade" id="profile0" role="tabpanel" aria-labelledby="profile-tab0">
-      Tab 2 content
-    </div>
-    <div class="tab-pane fade" id="contact0" role="tabpanel" aria-labelledby="contact-tab0">
-      Tab 3 content
-    </div>
-  </div>
+      <div class="p-2">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle mb-3"
+            type="button"
+            id="dropdownMenuButton2"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Letters - English
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-dark"
+            aria-labelledby="dropdownMenuButton2"
+          >
+            <li>
+              <a
+                class="dropdown-item m-1"
+                href="javascript:void(0)"
+                onclick="sectionSelect(event,'Letters - English')"
+                >Letters - English</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item m-1"
+                href="javascript:void(0)"
+                onclick="sectionSelect(event,'Letters - Kannada')"
+                >Letters - Kannada</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item m-1"
+                href="javascript:void(0)"
+                onclick="sectionSelect(event,'Numbers')"
+                >Numbers</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item m-1"
+                href="javascript:void(0)"
+                onclick="sectionSelect(event,'Color - Dots')"
+                >Color - Dots</a
+              >
+            </li>
+            <!-- <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item m-1" href="#">Separated link</a></li> -->
+          </ul>
+        </div>
 
-  <!-- MDB -->
-<script
-type="text/javascript"
-src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
-></script>
-</body>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle mt-2 mb-3"
+            type="button"
+            id="dropdownMenuButton3"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Uppercase letters
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-dark"
+            aria-labelledby="dropdownMenuButton3"
+          >
+            <li>
+              <a
+                class="dropdown-item m-1"
+                href="javascript:void(0)"
+                onclick="sectionSelectCase(event,'Uppercase Letters')"
+                >Uppercase letters</a
+              >
+            </li>
+            <li>
+              <a
+                class="dropdown-item m-1"
+                href="javascript:void(0)"
+                onclick="sectionSelectCase(event,'Lowercase Letters')"
+                >Lowercase Letters</a
+              >
+            </li>
+            <!-- <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item m-1" href="#">Separated link</a></li> -->
+          </ul>
+        </div>
+
+        <div
+          style="
+            text-align: center;
+            width: fit-content;
+            margin-right: auto;
+            font-size: 1.5rem;
+          "
+        >
+          <button class="btn btn-primary rounded" id="dbtn">-</button><br />
+          <button class="btn btn-primary rounded" id="lrbtn"><</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button class="btn btn-primary rounded" id="llbtn">></button><br />
+          <button class="btn btn-primary rounded" id="ibtn">+</button>
+        </div>
+        <input type="hidden" id="hfsize" value="2" />
+        <input type="hidden" id="lhfsize" value="0" />
+        <input type="hidden" id="ssel" value="Letters - English" />
+        <input type="hidden" id="active-menu" value="Letters - English" />
+        <input type="hidden" id="active-case" value="Uppercase Letters" />
+      </div>
+
+      <div class="p-2 flex-grow-1 align-items-center">
+        <!-- Tabs content -->
+        <!-- Letters-tab -->
+        <div class="tab-content" id="ex2-content">
+          <div
+            class="tab-pane fade show active p-1"
+            id="ex3-tabs-1"
+            role="tabpanel"
+            aria-labelledby="ex3-tab-1"
+          >
+            <p class="p" id="letter">A</p>
+          </div>
+
+          <!-- other tabs -->
+        </div>
+        <!-- Tabs content -->
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("lrbtn").addEventListener("click", function () {
+        let getsec = document.getElementById("ssel").value;
+        let arr = [];
+        if (getsec === "Letters - English") {
+          arr = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "A B",
+            "A B C",
+            "A B C D",
+            "A B C D E",
+          ];
+        } else if (getsec === "Letters - Kannada") {
+          arr = [
+            "ಅ",
+            "ಆ",
+            "ಇ",
+            "ಈ",
+            "ಉ",
+            "ಅ ಆ",
+            "ಅ ಆ ಇ",
+            "ಅ ಆ ಇ ಈ",
+            "ಅ ಆ ಇ ಈ ಉ",
+          ];
+        } else if (getsec === "Numbers") {
+          arr = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "1 2",
+            "1 2 3",
+            "1 2 3 4",
+            "1 2 3 4 5",
+          ];
+        } else if (getsec === "Color - Dots") {
+          arr = [
+            "&#x2022;",
+            "&#x2022;",
+            "&#x2022;",
+            "&#x2022;",
+            "&#x2022;",
+            "&#x2022; &#x2022;",
+            "&#x2022; &#x2022; &#x2022;",
+            "&#x2022; &#x2022; &#x2022; &#x2022;",
+            "&#x2022; &#x2022; &#x2022; &#x2022; &#x2022;",
+          ];
+        }
+
+        let ldata = document.getElementById("lhfsize").value;
+        ldata = +ldata;
+        if (ldata === 0) {
+        } else {
+          ldata -= 1;
+          document.getElementById("lhfsize").value = ldata;
+          if (
+            document.getElementById("active-case").value === "Uppercase Letters"
+          ) {
+            document.getElementById("letter").innerHTML = arr[ldata];
+          } else {
+            document.getElementById("letter").innerHTML =
+              arr[ldata].toLowerCase();
+          }
+        }
+      });
+      document.getElementById("llbtn").addEventListener("click", function () {
+        let getsec = document.getElementById("ssel").value;
+        let arr = [];
+        if (getsec === "Letters - English") {
+          arr = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "A B",
+            "A B C",
+            "A B C D",
+            "A B C D E",
+          ];
+        } else if (getsec === "Letters - Kannada") {
+          arr = [
+            "ಅ",
+            "ಆ",
+            "ಇ",
+            "ಈ",
+            "ಉ",
+            "ಅ ಆ",
+            "ಅ ಆ ಇ",
+            "ಅ ಆ ಇ ಈ",
+            "ಅ ಆ ಇ ಈ ಉ",
+          ];
+        } else if (getsec === "Numbers") {
+          arr = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "1 2",
+            "1 2 3",
+            "1 2 3 4",
+            "1 2 3 4 5",
+          ];
+        } else if (getsec === "Color - Dots") {
+          arr = [
+            "&#x2022;",
+            "&#x2022;",
+            "&#x2022;",
+            "&#x2022;",
+            "&#x2022;",
+            "&#x2022; &#x2022;",
+            "&#x2022; &#x2022; &#x2022;",
+            "&#x2022; &#x2022; &#x2022; &#x2022;",
+            "&#x2022; &#x2022; &#x2022; &#x2022; &#x2022;",
+          ];
+        }
+
+        let ldata = document.getElementById("lhfsize").value;
+        ldata = +ldata;
+        if (ldata === 8) {
+        } else {
+          ldata += 1;
+          document.getElementById("lhfsize").value = ldata;
+          if (
+            document.getElementById("active-case").value === "Uppercase Letters"
+          ) {
+            document.getElementById("letter").innerHTML = arr[ldata];
+          } else {
+            document.getElementById("letter").innerHTML =
+              arr[ldata].toLowerCase();
+          }
+        }
+      });
+      document.getElementById("ibtn").addEventListener("click", function () {
+        let ldata = document.getElementById("hfsize").value;
+        ldata = +ldata;
+        if (ldata === 24) {
+        } else {
+          ldata = ldata + 2;
+          document.getElementById("hfsize").value = ldata;
+          document.getElementById("letter").style.fontSize = `${ldata}rem`;
+          document.getElementsByTagName("span").style.width = `${ldata}rem`;
+          document.getElementsByTagName("span").style.height = `${ldata}rem`;
+        }
+      });
+      document.getElementById("dbtn").addEventListener("click", function () {
+        let ldata = document.getElementById("hfsize").value;
+        ldata = +ldata;
+        if (ldata === 2) {
+        } else {
+          ldata = ldata - 2;
+          document.getElementById("hfsize").value = ldata;
+          document.getElementById("letter").style.fontSize = `${ldata}rem`;
+        }
+      });
+
+      function sectionSelectCase(event, data) {
+        document.getElementById("dropdownMenuButton3").innerHTML = data;
+        document.getElementById("active-case").value = data;
+        if (data === "Uppercase Letters") {
+          document.getElementById("letter").innerHTML = document
+            .getElementById("letter")
+            .innerHTML.toUpperCase();
+        } else {
+          document.getElementById("letter").innerHTML = document
+            .getElementById("letter")
+            .innerHTML.toLowerCase();
+        }
+      }
+
+      function sectionSelect(event, data) {
+        //alert(data);
+        // event.target
+        if (data === "Letters - English") {
+          document.getElementById("dropdownMenuButton3").style.display =
+            "block";
+          document.getElementById("letter").innerText = "A";
+        } else if (data === "Letters - Kannada") {
+          document.getElementById("dropdownMenuButton3").style.display = "none";
+          document.getElementById("letter").innerText = "ಅ";
+        } else if (data === "Numbers") {
+          document.getElementById("dropdownMenuButton3").style.display = "none";
+          document.getElementById("letter").innerText = "1";
+        } else if (data === "Color - Dots") {
+          document.getElementById("dropdownMenuButton3").style.display = "none";
+          document.getElementById("letter").innerHTML = "&#x2022;";
+        }
+        document.getElementById("ex3-tab-1").innerText = data;
+        document.getElementById("dropdownMenuButton2").innerText = data;
+        document.getElementById("ssel").value = data;
+        document.getElementById("lhfsize").value = 0;
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+    ></script>
+  </body>
 </html>
