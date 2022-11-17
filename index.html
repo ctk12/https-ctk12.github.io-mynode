@@ -19,7 +19,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
       rel="stylesheet"
     />
-    <title>Eye Vision Test 1</title>
+    <title>Eye Vision Test</title>
     <style>
       .p {
         /* background-color: black; */
@@ -40,7 +40,7 @@
     <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
       <li class="nav-item" role="presentation">
         <a
-          style="font-size: 1.5rem"
+          style="font-size: 1rem"
           class="nav-link active"
           id="ex3-tab-1"
           data-mdb-toggle="tab"
@@ -103,6 +103,14 @@
                 >Color - Dots</a
               >
             </li>
+            <li>
+              <a
+                class="dropdown-item m-1"
+                href="javascript:void(0)"
+                onclick="sectionSelect(event,'Animals - Birds')"
+                >Animals - Birds</a
+              >
+            </li>
             <!-- <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item m-1" href="#">Separated link</a></li> -->
           </ul>
@@ -157,7 +165,7 @@
           <button class="btn btn-primary rounded" id="llbtn">></button><br />
           <button class="btn btn-primary rounded" id="ibtn">+</button>
         </div>
-        <input type="hidden" id="hfsize" value="2" />
+        <input type="hidden" id="hfsize" value="1" />
         <input type="hidden" id="lhfsize" value="0" />
         <input type="hidden" id="ssel" value="Letters - English" />
         <input type="hidden" id="active-menu" value="Letters - English" />
@@ -174,7 +182,9 @@
             role="tabpanel"
             aria-labelledby="ex3-tab-1"
           >
-            <p class="p" id="letter">A</p>
+          <div class="border border-dark d-flex align-items-center" style="height: 600px;margin-top:auto;margin-bottom:auto;">
+            <p class="p" id="letter" style="font-size: 1rem;transition: 0.5s;">A</p>
+          </div>
           </div>
 
           <!-- other tabs -->
@@ -234,6 +244,18 @@
             "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span>",
             "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span>",
             "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span> <span style='color:gray;'>&#x2022;</span>",
+          ];
+        } else if (getsec === "Animals - Birds") {
+          arr = [
+           '<img src="./img/1.jpeg" alt="Animals-Birds">',
+           '<img src="./img/2.jpeg" alt="Animals-Birds">',
+           '<img src="./img/3.jpeg" alt="Animals-Birds">',
+           '<img src="./img/4.jpeg" alt="Animals-Birds">',
+           '<img src="./img/5.jpeg" alt="Animals-Birds">',
+           '<img src="./img/6.jpeg" alt="Animals-Birds">',
+           '<img src="./img/7.jpeg" alt="Animals-Birds">',
+           '<img src="./img/8.jpeg" alt="Animals-Birds">',
+           '<img src="./img/9.jpeg" alt="Animals-Birds">',
           ];
         }
 
@@ -304,6 +326,18 @@
             "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span>",
             "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span> <span style='color:gray;'>&#x2022;</span>",
           ];
+        } else if (getsec === "Animals - Birds") {
+          arr = [
+           '<img src="./img/1.jpeg" alt="Animals-Birds">',
+           '<img src="./img/2.jpeg" alt="Animals-Birds">',
+           '<img src="./img/3.jpeg" alt="Animals-Birds">',
+           '<img src="./img/4.jpeg" alt="Animals-Birds">',
+           '<img src="./img/5.jpeg" alt="Animals-Birds">',
+           '<img src="./img/6.jpeg" alt="Animals-Birds">',
+           '<img src="./img/7.jpeg" alt="Animals-Birds">',
+           '<img src="./img/8.jpeg" alt="Animals-Birds">',
+           '<img src="./img/9.jpeg" alt="Animals-Birds">',
+          ];
         }
 
         let ldata = document.getElementById("lhfsize").value;
@@ -327,7 +361,7 @@
         ldata = +ldata;
         if (ldata === 24) {
         } else {
-          ldata = ldata + 2;
+          if(ldata === 1){ ldata = ldata + 1; }else{ ldata = ldata + 2; }
           document.getElementById("hfsize").value = ldata;
           document.getElementById("letter").style.fontSize = `${ldata}rem`;
           document.getElementsByTagName("span").style.width = `${ldata}rem`;
@@ -337,9 +371,9 @@
       document.getElementById("dbtn").addEventListener("click", function () {
         let ldata = document.getElementById("hfsize").value;
         ldata = +ldata;
-        if (ldata === 2) {
+        if (ldata === 1) {
         } else {
-          ldata = ldata - 2;
+          if(ldata === 2){ ldata = ldata - 1; }else{ ldata = ldata - 2; }
           document.getElementById("hfsize").value = ldata;
           document.getElementById("letter").style.fontSize = `${ldata}rem`;
         }
@@ -375,6 +409,9 @@
         } else if (data === "Color - Dots") {
           document.getElementById("dropdownMenuButton3").style.display = "none";
           document.getElementById("letter").innerHTML = "&#x2022;";
+        } else if (data === "Animals - Birds") {
+          document.getElementById("dropdownMenuButton3").style.display = "none";
+          document.getElementById("letter").innerHTML = '<img src="./img/1.jpeg" alt="Animals-Birds">';
         }
         document.getElementById("ex3-tab-1").innerText = data;
         document.getElementById("dropdownMenuButton2").innerText = data;
@@ -382,6 +419,7 @@
         document.getElementById("lhfsize").value = 0;
       }
     </script>
+    
     <script
       type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
