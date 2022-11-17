@@ -21,6 +21,9 @@
     />
     <title>Eye Vision Test</title>
     <style>
+      body{
+        background-color: #FBFBFB;
+      }
       .p {
         /* background-color: black; */
         color: black;
@@ -37,9 +40,9 @@
   </head>
   <body>
     <!-- Tabs navs -->
-    <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
-      <li class="nav-item" role="presentation">
-        <a
+    <div class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+      <div class="nav-item" role="presentation">
+        <!-- <a
           style="font-size: 1rem"
           class="nav-link active"
           id="ex3-tab-1"
@@ -49,130 +52,87 @@
           aria-controls="ex3-tabs-1"
           aria-selected="true"
           >Letters - English</a
+        > -->
+        <div class="dropdown">
+        <button
+          class="btn btn-secondary btn-lg dropdown-toggle mb-1"
+          style="width: 98%;"
+          type="button"
+          id="dropdownMenuButton2"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >Uppercase Letters - English
+      </button>
+      <ul
+      class="dropdown-menu dropdown-menu-dark"
+      style="width: 98%;"
+      aria-labelledby="dropdownMenuButton2"
+    >
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Uppercase Letters - English')"
+          >Uppercase Letters - English</a
         >
       </li>
-    </ul>
-    <!-- Tabs navs -->
-    <div
-      class="d-flex align-content-stretch flex-wrap flex-column flex-sm-column flex-lg-row flex-md-row flex-xl-row flex-xxl-row"
-    >
-      <div class="p-2">
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle mb-4"
-            type="button"
-            id="dropdownMenuButton2"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Letters - English
-          </button>
-          <ul
-            class="dropdown-menu dropdown-menu-dark"
-            aria-labelledby="dropdownMenuButton2"
-          >
-            <li>
-              <a
-                class="dropdown-item m-1"
-                href="javascript:void(0)"
-                onclick="sectionSelect(event,'Letters - English')"
-                >Letters - English</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item m-1"
-                href="javascript:void(0)"
-                onclick="sectionSelect(event,'Letters - Kannada')"
-                >Letters - Kannada</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item m-1"
-                href="javascript:void(0)"
-                onclick="sectionSelect(event,'Numbers')"
-                >Numbers</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item m-1"
-                href="javascript:void(0)"
-                onclick="sectionSelect(event,'Color - Dots')"
-                >Color - Dots</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item m-1"
-                href="javascript:void(0)"
-                onclick="sectionSelect(event,'Animals - Birds')"
-                >Animals - Birds</a
-              >
-            </li>
-            <!-- <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item m-1" href="#">Separated link</a></li> -->
-          </ul>
-        </div>
-
-        <div class="dropdown">
-          <button
-            class="btn btn-secondary dropdown-toggle mt-2 mb-4"
-            type="button"
-            id="dropdownMenuButton3"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Uppercase letters
-          </button>
-          <ul
-            class="dropdown-menu dropdown-menu-dark"
-            aria-labelledby="dropdownMenuButton3"
-          >
-            <li>
-              <a
-                class="dropdown-item m-1"
-                href="javascript:void(0)"
-                onclick="sectionSelectCase(event,'Uppercase Letters')"
-                >Uppercase letters</a
-              >
-            </li>
-            <li>
-              <a
-                class="dropdown-item m-1"
-                href="javascript:void(0)"
-                onclick="sectionSelectCase(event,'Lowercase Letters')"
-                >Lowercase Letters</a
-              >
-            </li>
-            <!-- <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item m-1" href="#">Separated link</a></li> -->
-          </ul>
-        </div>
-
-        <div
-          style="
-            text-align: center;
-            width: fit-content;
-            margin-right: auto;
-            font-size: 1.5rem;
-          "
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Lowercase Letters - English')"
+          >Lowercase Letters - English</a
         >
-          <button class="btn btn-primary rounded" id="dbtn">–</button><br />
-          <button class="btn btn-primary rounded" id="lrbtn"><</button>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <button class="btn btn-primary rounded" id="llbtn">></button><br />
-          <button class="btn btn-primary rounded" id="ibtn">+</button>
-        </div>
-        <input type="hidden" id="hfsize" value="1" />
-        <input type="hidden" id="lhfsize" value="0" />
-        <input type="hidden" id="ssel" value="Letters - English" />
-        <input type="hidden" id="active-menu" value="Letters - English" />
-        <input type="hidden" id="active-case" value="Uppercase Letters" />
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Letters - Kannada')"
+          >Letters - Kannada</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Numbers')"
+          >Numbers</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Color - Dots')"
+          >Color - Dots</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Animals - Birds')"
+          >Animals - Birds</a
+        >
+      </li>
+      <!-- <li><hr class="dropdown-divider" /></li>
+      <li><a class="dropdown-item m-1" href="#">Separated link</a></li> -->
+    </ul>
       </div>
+    </div>
+  </div>
+    <!-- Tabs navs -->
+    
 
-      <div class="p-2 flex-grow-1 gfg-box">
+
+
+    <div
+      class="d-flex align-content-stretch flex-wrap flex-row flex-sm-row flex-lg-row flex-md-row flex-xl-row flex-xxl-row"
+    >
+     
+
+      <div class="flex-grow-1 gfg-box">
         <!-- Tabs content -->
         <!-- Letters-tab -->
         <div class="tab-content" id="ex2-content">
@@ -182,7 +142,7 @@
             role="tabpanel"
             aria-labelledby="ex3-tab-1"
           >
-          <div class="border border-dark d-flex align-items-center" style="height: 600px;margin-top:auto;margin-bottom:auto;">
+          <div class="border border-dark d-flex align-items-center" style="height: 500px;margin-top:auto;margin-bottom:auto;">
             <p class="p" id="letter" style="font-size: 1rem;transition: 0.5s;">A</p>
           </div>
           </div>
@@ -193,11 +153,36 @@
       </div>
     </div>
 
+    <div class="justify-content-center p-2 d-flex align-content-stretch flex-wrap flex-row flex-sm-row flex-lg-row flex-md-row flex-xl-row flex-xxl-row">
+      <center>
+      <div
+        style="
+          text-align: center;
+          width: fit-content;
+          margin-right: auto;
+          font-size: 1.5rem;
+        "
+      >
+      
+        <button class="btn btn-primary btn-lg rounded" id="dbtn">–</button><br />
+        <button class="btn btn-primary btn-lg rounded" id="lrbtn"><</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary btn-lg rounded" id="llbtn">></button><br />
+        <button class="btn btn-primary btn-lg rounded" id="ibtn">+</button>
+      </div>
+      <input type="hidden" id="hfsize" value="1" />
+      <input type="hidden" id="lhfsize" value="0" />
+      <input type="hidden" id="ssel" value="Uppercase Letters - English" />
+      <input type="hidden" id="active-menu" value="Uppercase Letters - English" />
+      <input type="hidden" id="active-case" value="Uppercase Letters - English" />
+     </center>
+    </div>
+
     <script>
       document.getElementById("lrbtn").addEventListener("click", function () {
         let getsec = document.getElementById("ssel").value;
         let arr = [];
-        if (getsec === "Letters - English") {
+        if (getsec === "Uppercase Letters - English" || getsec === "Lowercase Letters - English") {
           arr = [
             "A",
             "B",
@@ -218,8 +203,8 @@
             "ಉ",
             "ಅ ಆ",
             "ಅ ಆ ಇ",
-            "ಅ ಆ ಇ ಈ",
-            "ಅ ಆ ಇ ಈ ಉ",
+            "ಆ ಇ ಈ",
+            "ಇ ಈ ಉ",
           ];
         } else if (getsec === "Numbers") {
           arr = [
@@ -266,7 +251,7 @@
           ldata -= 1;
           document.getElementById("lhfsize").value = ldata;
           if (
-            document.getElementById("active-case").value === "Uppercase Letters"
+            document.getElementById("active-case").value === "Uppercase Letters - English"
           ) {
             document.getElementById("letter").innerHTML = arr[ldata];
           } else {
@@ -278,7 +263,7 @@
       document.getElementById("llbtn").addEventListener("click", function () {
         let getsec = document.getElementById("ssel").value;
         let arr = [];
-        if (getsec === "Letters - English") {
+        if (getsec === "Uppercase Letters - English" || getsec === "Lowercase Letters - English") {
           arr = [
             "A",
             "B",
@@ -299,8 +284,8 @@
             "ಉ",
             "ಅ ಆ",
             "ಅ ಆ ಇ",
-            "ಅ ಆ ಇ ಈ",
-            "ಅ ಆ ಇ ಈ ಉ",
+            "ಆ ಇ ಈ",
+            "ಇ ಈ ಉ",
           ];
         } else if (getsec === "Numbers") {
           arr = [
@@ -347,7 +332,7 @@
           ldata += 1;
           document.getElementById("lhfsize").value = ldata;
           if (
-            document.getElementById("active-case").value === "Uppercase Letters"
+            document.getElementById("active-case").value === "Uppercase Letters - English"
           ) {
             document.getElementById("letter").innerHTML = arr[ldata];
           } else {
@@ -359,7 +344,7 @@
       document.getElementById("ibtn").addEventListener("click", function () {
         let ldata = document.getElementById("hfsize").value;
         ldata = +ldata;
-        if (ldata === 24) {
+        if (ldata === 20) {
         } else {
           if(ldata === 1){ ldata = ldata + 1; }else{ ldata = ldata + 2; }
           document.getElementById("hfsize").value = ldata;
@@ -379,41 +364,26 @@
         }
       });
 
-      function sectionSelectCase(event, data) {
-        document.getElementById("dropdownMenuButton3").innerHTML = data;
-        document.getElementById("active-case").value = data;
-        if (data === "Uppercase Letters") {
-          document.getElementById("letter").innerHTML = document
-            .getElementById("letter")
-            .innerHTML.toUpperCase();
-        } else {
-          document.getElementById("letter").innerHTML = document
-            .getElementById("letter")
-            .innerHTML.toLowerCase();
-        }
-      }
 
       function sectionSelect(event, data) {
         //alert(data);
         // event.target
-        if (data === "Letters - English") {
-          document.getElementById("dropdownMenuButton3").style.display =
-            "block";
+        if (data === "Uppercase Letters - English") {
+          document.getElementById("active-case").value = data;
           document.getElementById("letter").innerText = "A";
+        } else if (data === "Lowercase Letters - English") {
+          document.getElementById("active-case").value = data;
+          document.getElementById("letter").innerText = "a";
         } else if (data === "Letters - Kannada") {
-          document.getElementById("dropdownMenuButton3").style.display = "none";
           document.getElementById("letter").innerText = "ಅ";
         } else if (data === "Numbers") {
-          document.getElementById("dropdownMenuButton3").style.display = "none";
           document.getElementById("letter").innerText = "1";
         } else if (data === "Color - Dots") {
-          document.getElementById("dropdownMenuButton3").style.display = "none";
           document.getElementById("letter").innerHTML = "&#x2022;";
         } else if (data === "Animals - Birds") {
-          document.getElementById("dropdownMenuButton3").style.display = "none";
           document.getElementById("letter").innerHTML = '<img src="./img/1.jpeg" alt="Animals-Birds">';
         }
-        document.getElementById("ex3-tab-1").innerText = data;
+        // document.getElementById("ex3-tab-1").innerText = data;
         document.getElementById("dropdownMenuButton2").innerText = data;
         document.getElementById("ssel").value = data;
         document.getElementById("lhfsize").value = 0;
