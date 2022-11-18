@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex">
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <title>Eye Vision Test</title>
+    <!-- 8Uw7rd#33 -->
+    <style>
+      body{
+        background-color: #FBFBFB;
+      }
+      .p {
+        /* background-color: black; */
+        color: black;
+        font-weight: bold;
+        font-size: 2rem;
+        margin: auto;
+        width: fit-content;
+      }
+      .gfg-box {
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Tabs navs -->
+    <div class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
+      <div class="nav-item" role="presentation">
+        <!-- <a
+          style="font-size: 1rem"
+          class="nav-link active"
+          id="ex3-tab-1"
+          data-mdb-toggle="tab"
+          href="#ex3-tabs-1"
+          role="tab"
+          aria-controls="ex3-tabs-1"
+          aria-selected="true"
+          >Letters - English</a
+        > -->
+        <div class="dropdown">
+        <button
+          class="btn btn-secondary btn-lg dropdown-toggle mb-1"
+          style="width: 98%;"
+          type="button"
+          id="dropdownMenuButton2"
+          data-mdb-toggle="dropdown"
+          aria-expanded="false"
+        >Uppercase Letters - English
+      </button>
+      <ul
+      class="dropdown-menu dropdown-menu-dark"
+      style="width: 98%;"
+      aria-labelledby="dropdownMenuButton2"
+    >
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Uppercase Letters - English')"
+          >Uppercase Letters - English</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Lowercase Letters - English')"
+          >Lowercase Letters - English</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Letters - Kannada')"
+          >Letters - Kannada</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Numbers')"
+          >Numbers</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Color - Dots')"
+          >Color - Dots</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item m-1 text-center"
+          href="javascript:void(0)"
+          onclick="sectionSelect(event,'Animals - Birds')"
+          >Animals - Birds</a
+        >
+      </li>
+      <!-- <li><hr class="dropdown-divider" /></li>
+      <li><a class="dropdown-item m-1" href="#">Separated link</a></li> -->
+    </ul>
+      </div>
+    </div>
+  </div>
+    <!-- Tabs navs -->
+    
+
+
+
+    <div
+      class="d-flex align-content-stretch flex-wrap flex-row flex-sm-row flex-lg-row flex-md-row flex-xl-row flex-xxl-row"
+    >
+     
+
+      <div class="flex-grow-1 gfg-box">
+        <!-- Tabs content -->
+        <!-- Letters-tab -->
+        <div class="tab-content" id="ex2-content">
+          <div
+            class="tab-pane fade show active p-1"
+            id="ex3-tabs-1"
+            role="tabpanel"
+            aria-labelledby="ex3-tab-1"
+          >
+          <div class="border border-dark d-flex align-items-center" style="height: 500px;margin-top:auto;margin-bottom:auto;">
+            <p class="p" id="letter" style="font-size: 1rem;transition: 0.5s;">A</p>
+          </div>
+          </div>
+
+          <!-- other tabs -->
+        </div>
+        <!-- Tabs content -->
+      </div>
+    </div>
+
+    <div class="justify-content-center p-2 d-flex align-content-stretch flex-wrap flex-row flex-sm-row flex-lg-row flex-md-row flex-xl-row flex-xxl-row">
+      <center>
+      <div
+        style="
+          text-align: center;
+          width: fit-content;
+          margin-right: auto;
+          font-size: 1.5rem;
+        "
+      >
+      
+        <button class="btn btn-primary btn-lg rounded" id="dbtn">–</button><br />
+        <button class="btn btn-primary btn-lg rounded" id="lrbtn"><</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary btn-lg rounded" id="llbtn">></button><br />
+        <button class="btn btn-primary btn-lg rounded" id="ibtn">+</button>
+      </div>
+      <input type="hidden" id="hfsize" value="1" />
+      <input type="hidden" id="lhfsize" value="0" />
+      <input type="hidden" id="ssel" value="Uppercase Letters - English" />
+      <input type="hidden" id="active-menu" value="Uppercase Letters - English" />
+      <input type="hidden" id="active-case" value="Uppercase Letters - English" />
+     </center>
+    </div>
+
+    <script>
+      document.getElementById("lrbtn").addEventListener("click", function () {
+        let getsec = document.getElementById("ssel").value;
+        let arr = [];
+        if (getsec === "Uppercase Letters - English" || getsec === "Lowercase Letters - English") {
+          arr = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "A B",
+            "A B C",
+            "A B C D",
+            "A B C D E",
+          ];
+        } else if (getsec === "Letters - Kannada") {
+          arr = [
+            "ಅ",
+            "ಆ",
+            "ಇ",
+            "ಈ",
+            "ಉ",
+            "ಅ ಆ",
+            "ಅ ಆ ಇ",
+            "ಆ ಇ ಈ",
+            "ಇ ಈ ಉ",
+          ];
+        } else if (getsec === "Numbers") {
+          arr = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "1 2",
+            "1 2 3",
+            "1 2 3 4",
+            "1 2 3 4 5",
+          ];
+        } else if (getsec === "Color - Dots") {
+          arr = [
+            "<span style='color:black;'>&#x2022;</span>",
+            "<span style='color:red;'>&#x2022;</span>",
+            "<span style='color:green;'>&#x2022;</span>",
+            "<span style='color:blue;'>&#x2022;</span>",
+            "<span style='color:gray;'>&#x2022;</span>",
+            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span>",
+            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span>",
+            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span>",
+            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span> <span style='color:gray;'>&#x2022;</span>",
+          ];
+        } else if (getsec === "Animals - Birds") {
+          arr = [
+           '<img src="./img/1.jpeg" alt="Animals-Birds">',
+           '<img src="./img/2.jpeg" alt="Animals-Birds">',
+           '<img src="./img/3.jpeg" alt="Animals-Birds">',
+           '<img src="./img/4.jpeg" alt="Animals-Birds">',
+           '<img src="./img/5.jpeg" alt="Animals-Birds">',
+           '<img src="./img/6.jpeg" alt="Animals-Birds">',
+           '<img src="./img/7.jpeg" alt="Animals-Birds">',
+           '<img src="./img/8.jpeg" alt="Animals-Birds">',
+           '<img src="./img/9.jpeg" alt="Animals-Birds">',
+          ];
+        }
+
+        let ldata = document.getElementById("lhfsize").value;
+        ldata = +ldata;
+        if (ldata === 0) {
+        } else {
+          ldata -= 1;
+          document.getElementById("lhfsize").value = ldata;
+          if (
+            document.getElementById("active-case").value === "Uppercase Letters - English"
+          ) {
+            document.getElementById("letter").innerHTML = arr[ldata];
+          } else {
+            document.getElementById("letter").innerHTML =
+              arr[ldata].toLowerCase();
+          }
+        }
+      });
+      document.getElementById("llbtn").addEventListener("click", function () {
+        let getsec = document.getElementById("ssel").value;
+        let arr = [];
+        if (getsec === "Uppercase Letters - English" || getsec === "Lowercase Letters - English") {
+          arr = [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "A B",
+            "A B C",
+            "A B C D",
+            "A B C D E",
+          ];
+        } else if (getsec === "Letters - Kannada") {
+          arr = [
+            "ಅ",
+            "ಆ",
+            "ಇ",
+            "ಈ",
+            "ಉ",
+            "ಅ ಆ",
+            "ಅ ಆ ಇ",
+            "ಆ ಇ ಈ",
+            "ಇ ಈ ಉ",
+          ];
+        } else if (getsec === "Numbers") {
+          arr = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "1 2",
+            "1 2 3",
+            "1 2 3 4",
+            "1 2 3 4 5",
+          ];
+        } else if (getsec === "Color - Dots") {
+          arr = [
+            "<span style='color:black;'>&#x2022;</span>",
+            "<span style='color:red;'>&#x2022;</span>",
+            "<span style='color:green;'>&#x2022;</span>",
+            "<span style='color:blue;'>&#x2022;</span>",
+            "<span style='color:gray;'>&#x2022;</span>",
+            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span>",
+            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span>",
+            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span>",
+            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span> <span style='color:gray;'>&#x2022;</span>",
+          ];
+        } else if (getsec === "Animals - Birds") {
+          arr = [
+           '<img src="./img/1.jpeg" alt="Animals-Birds">',
+           '<img src="./img/2.jpeg" alt="Animals-Birds">',
+           '<img src="./img/3.jpeg" alt="Animals-Birds">',
+           '<img src="./img/4.jpeg" alt="Animals-Birds">',
+           '<img src="./img/5.jpeg" alt="Animals-Birds">',
+           '<img src="./img/6.jpeg" alt="Animals-Birds">',
+           '<img src="./img/7.jpeg" alt="Animals-Birds">',
+           '<img src="./img/8.jpeg" alt="Animals-Birds">',
+           '<img src="./img/9.jpeg" alt="Animals-Birds">',
+          ];
+        }
+
+        let ldata = document.getElementById("lhfsize").value;
+        ldata = +ldata;
+        if (ldata === 8) {
+        } else {
+          ldata += 1;
+          document.getElementById("lhfsize").value = ldata;
+          if (
+            document.getElementById("active-case").value === "Uppercase Letters - English"
+          ) {
+            document.getElementById("letter").innerHTML = arr[ldata];
+          } else {
+            document.getElementById("letter").innerHTML =
+              arr[ldata].toLowerCase();
+          }
+        }
+      });
+      document.getElementById("ibtn").addEventListener("click", function () {
+        let ldata = document.getElementById("hfsize").value;
+        ldata = +ldata;
+        if (ldata === 20) {
+        } else {
+          if(ldata === 1){ ldata = ldata + 1; }else{ ldata = ldata + 2; }
+          document.getElementById("hfsize").value = ldata;
+          document.getElementById("letter").style.fontSize = `${ldata}rem`;
+          document.getElementsByTagName("span").style.width = `${ldata}rem`;
+          document.getElementsByTagName("span").style.height = `${ldata}rem`;
+        }
+      });
+      document.getElementById("dbtn").addEventListener("click", function () {
+        let ldata = document.getElementById("hfsize").value;
+        ldata = +ldata;
+        if (ldata === 1) {
+        } else {
+          if(ldata === 2){ ldata = ldata - 1; }else{ ldata = ldata - 2; }
+          document.getElementById("hfsize").value = ldata;
+          document.getElementById("letter").style.fontSize = `${ldata}rem`;
+        }
+      });
+
+
+      function sectionSelect(event, data) {
+        //alert(data);
+        // event.target
+        document.getElementById("active-menu").value = data;
+        if (data === "Uppercase Letters - English") {
+          document.getElementById("active-case").value = data;
+          document.getElementById("letter").innerText = "A";
+        } else if (data === "Lowercase Letters - English") {
+          document.getElementById("active-case").value = data;
+          document.getElementById("letter").innerText = "a";
+        } else if (data === "Letters - Kannada") {
+          document.getElementById("letter").innerText = "ಅ";
+        } else if (data === "Numbers") {
+          document.getElementById("letter").innerText = "1";
+        } else if (data === "Color - Dots") {
+          document.getElementById("letter").innerHTML = "&#x2022;";
+        } else if (data === "Animals - Birds") {
+          document.getElementById("letter").innerHTML = '<img src="./img/1.jpeg" alt="Animals-Birds">';
+        }
+        // document.getElementById("ex3-tab-1").innerText = data;
+        document.getElementById("dropdownMenuButton2").innerText = data;
+        document.getElementById("ssel").value = data;
+        document.getElementById("lhfsize").value = 0;
+      }
+    </script>
+    
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+    ></script>
+  </body>
+</html>
