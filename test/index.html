@@ -311,50 +311,55 @@
         }
           
           function onStartUp(ddata) {
-          
-               var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = async function () {
+            const rand = Math.random().toString(16).substr(2, 8);
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
               if (this.readyState == 4 && this.status == 200) {
-               
+                // console.log(this.responseText);
               }
-            };
-            xhttp.open("POST", "/test/onstart.php", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");		
-          //xhttp.setRequestHeader("linkid", mainid);
-            xhttp.send(`linkid=${ddata}`); 
+            }
+            xmlHttp.open("PUT", 'https://testkatwa.b4a.io/classes/Data/qAC7v7Yr8S', true); // true for asynchronous
+            xmlHttp.setRequestHeader('X-Parse-Application-Id', 'aCGx06YPNNXzVIVO4AcBHsVpstrflv74w047y65q');
+            xmlHttp.setRequestHeader('X-Parse-REST-API-Key', 'tUKwHsnyK1qTLr0sxdRXIeSr37Uy8VB8ly4gODWV');
+            xmlHttp.setRequestHeader('Content-Type', 'application/json');  
+            xmlHttp.send('{"name":"' + rand + '", "dropdown":' + ddata + '}');
           }
-          onStartUp("on");
           
-          
-           window.onunload = function(){
-              onStartUp("off");
-           };
-          
+   
           
           
           function getServerData() {
-            console.log("working");
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = async function () {
-              if (this.readyState == 4 && this.status == 200) {
-                   //console.log(xhttp.responseText);
-                  if(xhttp.responseText === "wait") {
-          
-                  } else if(xhttp.responseText === "dbtn" || xhttp.responseText === "lrbtn" || xhttp.responseText === "llbtn" || xhttp.responseText === "ibtn") {
-                     document.getElementById(xhttp.responseText).click();
-                  } else {
-                      sectionSelect("0", xhttp.responseText);
-                  }
-              
+           
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+              if (this.readyState == 4 && this.status == 200){
+                let res = JSON.parse(this.responseText)['results'][0];
+                // console.log(res.dropdown);
+                let resData = res.dropdown;
+                let mainData = resData[0];
+                resData.shift();
+                let myJson = JSON.stringify(resData);
+
+                onStartUp(myJson); 
+                if (mainData === undefined) {
+
+                } else if (mainData === "dbtn" || mainData === "lrbtn" || mainData === "llbtn" || mainData === "ibtn") {
+                  document.getElementById(mainData).click();
+                } else {
+                    sectionSelect("0", mainData);
+                }
               }
-            };
-            xhttp.open("POST", "/test/getdata.php", true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");		
-          //xhttp.setRequestHeader("linkid", mainid);
-            xhttp.send(`linkid=test`); 
-      }
+            }
+            xmlHttp.open("GET", 'https://testkatwa.b4a.io/classes/Data?where={"objectId":"qAC7v7Yr8S"}', true); // true for asynchronous
+            xmlHttp.setRequestHeader('X-Parse-Application-Id', 'aCGx06YPNNXzVIVO4AcBHsVpstrflv74w047y65q');
+            xmlHttp.setRequestHeader('X-Parse-REST-API-Key', 'tUKwHsnyK1qTLr0sxdRXIeSr37Uy8VB8ly4gODWV');
+            xmlHttp.send();
+
+        }
           
-          setInterval(function () { getServerData() }, 500);
+          setInterval(function () { 
+            getServerData(); 
+          }, 500);
           
           
           
