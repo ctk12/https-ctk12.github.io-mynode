@@ -1,13 +1,12 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL & ~E_NOTICE);
-error_reporting(0);
-session_start();
+ ini_set('display_errors', 1);
+ ini_set('display_startup_errors', 1);
+ error_reporting(E_ALL & ~E_NOTICE);
+//error_reporting(0);
 //$header = apache_request_headers();
 //$linkid = $header['linkid'];
-$linkid = $_POST["linkid"];
 
+//  ["dbtn","lrbtn","llbtn","ibtn","Uppercase Letters - English"]
 
 function db(){
 	static $conn;                
@@ -40,18 +39,32 @@ if(mysqli_query($conn, $sql)){ return true; } else { echo $conn->error; return f
 	if(mysqli_num_rows($query) > 0){ return mysqli_fetch_assoc($query); }
 	else { return 0; }}
 
-    function makeCall($data, $val) {
-        u_data(array("$data" => $val)); 
-    }
-
 
     function getData() {
         $dd = f_onedata();
-        print_r($dd);
-        // if($dd === )
+        $res = json_decode($dd['dropdown'], true);
+		$result = uniqid();
+		if(count($res) > 0) { 
+			$getwork = $res[0];
+			array_shift($res);
+			//echo json_encode(array("dbtn","lrbtn","llbtn","ibtn","Uppercase Letters - English"));
+			//$aa = json_encode(array("dbtn","lrbtn","llbtn","ibtn","Uppercase Letters - English"));
+			u_data(array("dbtn" => $result, "dropdown" => json_encode($res))); 
+			return $getwork;
+		} else { 
+			u_data(array("dbtn" => $result)); 
+			return 0;
+		}
     }
 
-    getData();
+		 $wait = getData();
+		 if($wait === 0) {
+		    echo "wait";
+		 } else {
+		    echo $wait;
+		 } 
+	
+    
 
 // id
 // dbtn

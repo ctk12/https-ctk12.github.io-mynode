@@ -63,6 +63,7 @@
           id="dropdownMenuButton2"
           data-mdb-toggle="dropdown"
           aria-expanded="false"
+		  disabled
         >Uppercase Letters - English
       </button>
       <ul
@@ -131,6 +132,11 @@
 
    
 <br>
+	  <div id="checkw">
+	  <div class="alert alert-info text-center" role="alert">
+		Please Wait! Loading...
+	  </div>
+	  </div>
 <br>
 <br>
     <div class="justify-content-center p-2 d-flex align-content-stretch flex-wrap flex-row flex-sm-row flex-lg-row flex-md-row flex-xl-row flex-xxl-row">
@@ -144,22 +150,25 @@
         "
       >
       
-        <button class="btn btn-primary btn-lg rounded" id="dbtn">–</button><br />
-        <button class="btn btn-primary btn-lg rounded" id="lrbtn"><</button>
+        <button class="btn btn-primary btn-lg rounded" id="dbtn" disabled>–</button><br />
+        <button class="btn btn-primary btn-lg rounded" id="lrbtn" disabled><</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary btn-lg rounded" id="llbtn">></button><br />
-        <button class="btn btn-primary btn-lg rounded" id="ibtn">+</button>
+        <button class="btn btn-primary btn-lg rounded" id="llbtn" disabled>></button><br />
+        <button class="btn btn-primary btn-lg rounded" id="ibtn" disabled>+</button>
       </div>
       <input type="hidden" id="hfsize" value="1" />
       <input type="hidden" id="lhfsize" value="0" />
       <input type="hidden" id="ssel" value="Uppercase Letters - English" />
       <input type="hidden" id="active-menu" value="Uppercase Letters - English" />
       <input type="hidden" id="active-case" value="Uppercase Letters - English" />
+	  <input type="hidden" id="getOpen" value="11111" />
+		  
      </center>
     </div>
 
     <script>
       document.getElementById("lrbtn").addEventListener("click", function () {
+		getServerData("lrbtn"); 
         let getsec = document.getElementById("ssel").value;
         let arr = [];
         if (getsec === "Uppercase Letters - English" || getsec === "Lowercase Letters - English") {
@@ -241,6 +250,7 @@
         }
       });
       document.getElementById("llbtn").addEventListener("click", function () {
+		getServerData("llbtn");  
         let getsec = document.getElementById("ssel").value;
         let arr = [];
         if (getsec === "Uppercase Letters - English" || getsec === "Lowercase Letters - English") {
@@ -322,6 +332,7 @@
         }
       });
       document.getElementById("ibtn").addEventListener("click", function () {
+		getServerData("ibtn");
         let ldata = document.getElementById("hfsize").value;
         ldata = +ldata;
         if (ldata === 20) {
@@ -334,6 +345,7 @@
         }
       });
       document.getElementById("dbtn").addEventListener("click", function () {
+		getServerData("dbtn");
         let ldata = document.getElementById("hfsize").value;
         ldata = +ldata;
         if (ldata === 1) {
@@ -346,6 +358,8 @@
 
 
       function sectionSelect(event, data) {
+		  
+		  getServerData(data);
         //alert(data);
         // event.target
         document.getElementById("active-menu").value = data;
@@ -371,23 +385,62 @@
       }
 
        
-         function getServerData() {
+         function getServerData(valtosend) {
 
           var xhttp = new XMLHttpRequest();
           xhttp.onreadystatechange = async function () {
             if (this.readyState == 4 && this.status == 200) {
               // console.log(xhttp.responseText);
-            
+				if(xhttp.responseText === "ok")  { 
+				   console.log(xhttp.responseText);
+				} else {
+				   console.log("error");
+				}
             }
           };
-          xhttp.open("POST", "/test/getdata.php", true);
+          xhttp.open("POST", "/test/updata.php", true);
           xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");		
         //xhttp.setRequestHeader("linkid", mainid);
-          xhttp.send(`linkid=${mainid}`); 
+          xhttp.send(`linkid=${valtosend}`); 
     }
 
          
-
+        setInterval(function () { 
+			
+		var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = async function () {
+            if (this.readyState == 4 && this.status == 200) {
+				let preUniq = document.getElementById("getOpen").value;
+				console.log(xhttp.responseText, preUniq);
+				if(xhttp.responseText !== preUniq) { 
+				   document.getElementById("getOpen").value = xhttp.responseText;
+				   document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">
+																  Test Window is Opened!
+																</div>`;	
+				   document.getElementById("ibtn").disabled = false;
+				   document.getElementById("dbtn").disabled = false;
+				   document.getElementById("llbtn").disabled = false;
+				   document.getElementById("lrbtn").disabled = false;
+				   document.getElementById("dropdownMenuButton2").disabled = false;
+				} else if (xhttp.responseText === preUniq) {
+				   document.getElementById("checkw").innerHTML = `<div class="alert alert-danger text-center" role="alert">
+																  Test Window is Closed!
+																</div>`;	
+				   document.getElementById("ibtn").disabled = true;
+				   document.getElementById("dbtn").disabled = true;
+				   document.getElementById("llbtn").disabled = true;
+				   document.getElementById("lrbtn").disabled = true;
+				   document.getElementById("dropdownMenuButton2").disabled = true;
+				} 
+            }
+          };
+          xhttp.open("POST", "/test/checkwindow.php", true);
+          xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");		
+        //xhttp.setRequestHeader("linkid", mainid);
+          xhttp.send(`linkid=1`);
+		
+		
+		}, 3000);
 
 
 
