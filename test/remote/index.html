@@ -387,9 +387,7 @@
        
          function getServerData(valtosend) {
 
-             document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">
-                                          Wait Task Processing!
-                                        </div>`;	
+             document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">Wait Task Processing!</div>`;	
                   document.getElementById("ibtn").disabled = true;
                   document.getElementById("dbtn").disabled = true;
                   document.getElementById("llbtn").disabled = true;
@@ -397,14 +395,14 @@
                   document.getElementById("dropdownMenuButton2").disabled = true;
 
           setTimeout(() => {
-            document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">
-                                          Test Window is Opened!
-                                        </div>`;	
+            if(document.getElementById("checkw").innerHTML !== `<div class="alert alert-danger text-center" role="alert">Test Window is Closed!</div>`) {
+              document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">Test Window is Opened!</div>`;	
                   document.getElementById("ibtn").disabled = false;
                   document.getElementById("dbtn").disabled = false;
                   document.getElementById("llbtn").disabled = false;
                   document.getElementById("lrbtn").disabled = false;
                   document.getElementById("dropdownMenuButton2").disabled = false;
+            }
           }, 3000);        
       
           var xmlHttp = new XMLHttpRequest();
@@ -451,20 +449,16 @@
                // console.log(res.dropdown);
                let resData = res.name;
                let preUniq = document.getElementById("getOpen").value;
-                if(resData !== preUniq) { 
+                if(resData !== preUniq && document.getElementById("checkw").innerHTML !== `<div class="alert alert-success text-center" role="alert">Wait Task Processing!</div>`) { 
                   document.getElementById("getOpen").value = resData;
-                  document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">
-                                          Test Window is Opened!
-                                        </div>`;	
+                  document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">Test Window is Opened!</div>`;	
                   document.getElementById("ibtn").disabled = false;
                   document.getElementById("dbtn").disabled = false;
                   document.getElementById("llbtn").disabled = false;
                   document.getElementById("lrbtn").disabled = false;
                   document.getElementById("dropdownMenuButton2").disabled = false;
                 } else if (resData === preUniq) {
-                  document.getElementById("checkw").innerHTML = `<div class="alert alert-danger text-center" role="alert">
-                                          Test Window is Closed!
-                                        </div>`;	
+                  document.getElementById("checkw").innerHTML = `<div class="alert alert-danger text-center" role="alert">Test Window is Closed!</div>`;	
                   document.getElementById("ibtn").disabled = true;
                   document.getElementById("dbtn").disabled = true;
                   document.getElementById("llbtn").disabled = true;
