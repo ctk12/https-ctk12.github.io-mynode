@@ -386,6 +386,26 @@
 
        
          function getServerData(valtosend) {
+
+             document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">
+                                          Wait Task Processing!
+                                        </div>`;	
+                  document.getElementById("ibtn").disabled = true;
+                  document.getElementById("dbtn").disabled = true;
+                  document.getElementById("llbtn").disabled = true;
+                  document.getElementById("lrbtn").disabled = true;
+                  document.getElementById("dropdownMenuButton2").disabled = true;
+
+          setTimeout(() => {
+            document.getElementById("checkw").innerHTML = `<div class="alert alert-success text-center" role="alert">
+                                          Test Window is Opened!
+                                        </div>`;	
+                  document.getElementById("ibtn").disabled = false;
+                  document.getElementById("dbtn").disabled = false;
+                  document.getElementById("llbtn").disabled = false;
+                  document.getElementById("lrbtn").disabled = false;
+                  document.getElementById("dropdownMenuButton2").disabled = false;
+          }, 2000);        
       
           var xmlHttp = new XMLHttpRequest();
            xmlHttp.onreadystatechange = function () {
