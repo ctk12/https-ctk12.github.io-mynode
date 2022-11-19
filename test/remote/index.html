@@ -386,24 +386,40 @@
 
        
          function getServerData(valtosend) {
+      
+          var xmlHttp = new XMLHttpRequest();
+           xmlHttp.onreadystatechange = function () {
+             if (this.readyState == 4 && this.status == 200){
+               let res = JSON.parse(this.responseText)['results'][0];
+               // console.log(res.dropdown);
+               let resData = res.dropdown;
+               resData.push(valtosend);
+               let myJson = JSON.stringify(resData);
+               getDataUp(myJson);
+             }
+           }
+           xmlHttp.open("GET", 'https://testkatwa.b4a.io/classes/Data?where={"objectId":"qAC7v7Yr8S"}', true); // true for asynchronous
+           xmlHttp.setRequestHeader('X-Parse-Application-Id', 'aCGx06YPNNXzVIVO4AcBHsVpstrflv74w047y65q');
+           xmlHttp.setRequestHeader('X-Parse-REST-API-Key', 'tUKwHsnyK1qTLr0sxdRXIeSr37Uy8VB8ly4gODWV');
+           xmlHttp.send();
+    
+        }
 
-          var xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = async function () {
-            if (this.readyState == 4 && this.status == 200) {
-              // console.log(xhttp.responseText);
-				if(xhttp.responseText === "ok")  { 
-				   console.log(xhttp.responseText);
-				} else {
-				   console.log("error");
-				}
-            }
-          };
-          xhttp.open("POST", "/test/updata.php", true);
-          xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");		
-        //xhttp.setRequestHeader("linkid", mainid);
-          xhttp.send(`linkid=${valtosend}`); 
+
+    function getDataUp(myJson) {
+
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        // console.log(this.responseText);
+      }
     }
-
+    xmlHttp.open("PUT", 'https://testkatwa.b4a.io/classes/Data/qAC7v7Yr8S', true); // true for asynchronous
+    xmlHttp.setRequestHeader('X-Parse-Application-Id', 'aCGx06YPNNXzVIVO4AcBHsVpstrflv74w047y65q');
+    xmlHttp.setRequestHeader('X-Parse-REST-API-Key', 'tUKwHsnyK1qTLr0sxdRXIeSr37Uy8VB8ly4gODWV');
+    xmlHttp.setRequestHeader('Content-Type', 'application/json');  
+    xmlHttp.send('{"dropdown":' + myJson + '}'); 
+    }
 
          
         setInterval(function () { 
