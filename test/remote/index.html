@@ -168,220 +168,25 @@
 
     <script>
       document.getElementById("lrbtn").addEventListener("click", function () {
-		getServerData("lrbtn"); 
-        let getsec = document.getElementById("ssel").value;
-        let arr = [];
-        if (getsec === "Uppercase Letters - English" || getsec === "Lowercase Letters - English") {
-          arr = [
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "A B",
-            "A B C",
-            "A B C D",
-            "A B C D E",
-          ];
-        } else if (getsec === "Letters - Kannada") {
-          arr = [
-            "ಅ",
-            "ಆ",
-            "ಇ",
-            "ಈ",
-            "ಉ",
-            "ಅ ಆ",
-            "ಅ ಆ ಇ",
-            "ಆ ಇ ಈ",
-            "ಇ ಈ ಉ",
-          ];
-        } else if (getsec === "Numbers") {
-          arr = [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "1 2",
-            "1 2 3",
-            "1 2 3 4",
-            "1 2 3 4 5",
-          ];
-        } else if (getsec === "Color - Dots") {
-          arr = [
-            "<span style='color:black;'>&#x2022;</span>",
-            "<span style='color:red;'>&#x2022;</span>",
-            "<span style='color:green;'>&#x2022;</span>",
-            "<span style='color:blue;'>&#x2022;</span>",
-            "<span style='color:gray;'>&#x2022;</span>",
-            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span>",
-            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span>",
-            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span>",
-            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span> <span style='color:gray;'>&#x2022;</span>",
-          ];
-        } else if (getsec === "Animals - Birds") {
-          arr = [
-           '<img src="./img/1.jpeg" alt="Animals-Birds">',
-           '<img src="./img/2.jpeg" alt="Animals-Birds">',
-           '<img src="./img/3.jpeg" alt="Animals-Birds">',
-           '<img src="./img/4.jpeg" alt="Animals-Birds">',
-           '<img src="./img/5.jpeg" alt="Animals-Birds">',
-           '<img src="./img/6.jpeg" alt="Animals-Birds">',
-           '<img src="./img/7.jpeg" alt="Animals-Birds">',
-           '<img src="./img/8.jpeg" alt="Animals-Birds">',
-           '<img src="./img/9.jpeg" alt="Animals-Birds">',
-          ];
-        }
-
-        let ldata = document.getElementById("lhfsize").value;
-        ldata = +ldata;
-        if (ldata === 0) {
-        } else {
-          ldata -= 1;
-          document.getElementById("lhfsize").value = ldata;
-          if (
-            document.getElementById("active-case").value === "Uppercase Letters - English"
-          ) {
-            document.getElementById("letter").innerHTML = arr[ldata];
-          } else {
-            document.getElementById("letter").innerHTML =
-              arr[ldata].toLowerCase();
-          }
-        }
+		    getServerData("lrbtn"); 
       });
+
       document.getElementById("llbtn").addEventListener("click", function () {
-		getServerData("llbtn");  
-        let getsec = document.getElementById("ssel").value;
-        let arr = [];
-        if (getsec === "Uppercase Letters - English" || getsec === "Lowercase Letters - English") {
-          arr = [
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "A B",
-            "A B C",
-            "A B C D",
-            "A B C D E",
-          ];
-        } else if (getsec === "Letters - Kannada") {
-          arr = [
-            "ಅ",
-            "ಆ",
-            "ಇ",
-            "ಈ",
-            "ಉ",
-            "ಅ ಆ",
-            "ಅ ಆ ಇ",
-            "ಆ ಇ ಈ",
-            "ಇ ಈ ಉ",
-          ];
-        } else if (getsec === "Numbers") {
-          arr = [
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "1 2",
-            "1 2 3",
-            "1 2 3 4",
-            "1 2 3 4 5",
-          ];
-        } else if (getsec === "Color - Dots") {
-          arr = [
-            "<span style='color:black;'>&#x2022;</span>",
-            "<span style='color:red;'>&#x2022;</span>",
-            "<span style='color:green;'>&#x2022;</span>",
-            "<span style='color:blue;'>&#x2022;</span>",
-            "<span style='color:gray;'>&#x2022;</span>",
-            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span>",
-            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span>",
-            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span>",
-            "<span style='color:black;'>&#x2022;</span> <span style='color:red;'>&#x2022;</span> <span style='color:green;'>&#x2022;</span> <span style='color:blue;'>&#x2022;</span> <span style='color:gray;'>&#x2022;</span>",
-          ];
-        } else if (getsec === "Animals - Birds") {
-          arr = [
-           '<img src="./img/1.jpeg" alt="Animals-Birds">',
-           '<img src="./img/2.jpeg" alt="Animals-Birds">',
-           '<img src="./img/3.jpeg" alt="Animals-Birds">',
-           '<img src="./img/4.jpeg" alt="Animals-Birds">',
-           '<img src="./img/5.jpeg" alt="Animals-Birds">',
-           '<img src="./img/6.jpeg" alt="Animals-Birds">',
-           '<img src="./img/7.jpeg" alt="Animals-Birds">',
-           '<img src="./img/8.jpeg" alt="Animals-Birds">',
-           '<img src="./img/9.jpeg" alt="Animals-Birds">',
-          ];
-        }
+		    getServerData("llbtn");  
+      });
 
-        let ldata = document.getElementById("lhfsize").value;
-        ldata = +ldata;
-        if (ldata === 8) {
-        } else {
-          ldata += 1;
-          document.getElementById("lhfsize").value = ldata;
-          if (
-            document.getElementById("active-case").value === "Uppercase Letters - English"
-          ) {
-            document.getElementById("letter").innerHTML = arr[ldata];
-          } else {
-            document.getElementById("letter").innerHTML =
-              arr[ldata].toLowerCase();
-          }
-        }
-      });
       document.getElementById("ibtn").addEventListener("click", function () {
-		getServerData("ibtn");
-        let ldata = document.getElementById("hfsize").value;
-        ldata = +ldata;
-        if (ldata === 20) {
-        } else {
-          if(ldata === 1){ ldata = ldata + 1; }else{ ldata = ldata + 2; }
-          document.getElementById("hfsize").value = ldata;
-          document.getElementById("letter").style.fontSize = `${ldata}rem`;
-          document.getElementsByTagName("span").style.width = `${ldata}rem`;
-          document.getElementsByTagName("span").style.height = `${ldata}rem`;
-        }
+		    getServerData("ibtn");
       });
+
       document.getElementById("dbtn").addEventListener("click", function () {
-		getServerData("dbtn");
-        let ldata = document.getElementById("hfsize").value;
-        ldata = +ldata;
-        if (ldata === 1) {
-        } else {
-          if(ldata === 2){ ldata = ldata - 1; }else{ ldata = ldata - 2; }
-          document.getElementById("hfsize").value = ldata;
-          document.getElementById("letter").style.fontSize = `${ldata}rem`;
-        }
+		    getServerData("dbtn");
       });
 
 
       function sectionSelect(event, data) {
-		  
-		  getServerData(data);
-        //alert(data);
-        // event.target
-        document.getElementById("active-menu").value = data;
-        if (data === "Uppercase Letters - English") {
-          document.getElementById("active-case").value = data;
-          document.getElementById("letter").innerText = "A";
-        } else if (data === "Lowercase Letters - English") {
-          document.getElementById("active-case").value = data;
-          document.getElementById("letter").innerText = "a";
-        } else if (data === "Letters - Kannada") {
-          document.getElementById("letter").innerText = "ಅ";
-        } else if (data === "Numbers") {
-          document.getElementById("letter").innerText = "1";
-        } else if (data === "Color - Dots") {
-          document.getElementById("letter").innerHTML = "&#x2022;";
-        } else if (data === "Animals - Birds") {
-          document.getElementById("letter").innerHTML = '<img src="./img/1.jpeg" alt="Animals-Birds">';
-        }
-        // document.getElementById("ex3-tab-1").innerText = data;
         document.getElementById("dropdownMenuButton2").innerText = data;
-        document.getElementById("ssel").value = data;
-        document.getElementById("lhfsize").value = 0;
+		    getServerData(data);
       }
 
        
@@ -392,6 +197,8 @@
                   document.getElementById("dbtn").disabled = true;
                   document.getElementById("llbtn").disabled = true;
                   document.getElementById("lrbtn").disabled = true;
+                  document.getElementById("dropdownMenuButton2").classList.remove("show");
+                  document.getElementsByClassName("dropdown-menu")[0].classList.remove("show");
                   document.getElementById("dropdownMenuButton2").disabled = true;
 
           setTimeout(() => {
@@ -416,8 +223,10 @@
                getDataUp(myJson);
              }
            }
-           xmlHttp.open("GET", 'https://testkatwa.b4a.io/classes/Data?where={"objectId":"qAC7v7Yr8S"}', true); // true for asynchronous
-           var _0x5ae73e=_0x8fca;function _0x8fca(_0x55ffcd,_0x52204b){var _0x199591=_0x1995();return _0x8fca=function(_0x8fca5f,_0x482c25){_0x8fca5f=_0x8fca5f-0xd5;var _0x4e2ffe=_0x199591[_0x8fca5f];return _0x4e2ffe;},_0x8fca(_0x55ffcd,_0x52204b);}(function(_0x1a63d8,_0x279276){var _0x3621ec=_0x8fca,_0x3f00dd=_0x1a63d8();while(!![]){try{var _0x5c8a3b=-parseInt(_0x3621ec(0xe2))/0x1*(parseInt(_0x3621ec(0xd5))/0x2)+parseInt(_0x3621ec(0xd8))/0x3+parseInt(_0x3621ec(0xdd))/0x4+parseInt(_0x3621ec(0xdf))/0x5*(parseInt(_0x3621ec(0xd6))/0x6)+-parseInt(_0x3621ec(0xe3))/0x7+parseInt(_0x3621ec(0xde))/0x8+-parseInt(_0x3621ec(0xd9))/0x9*(parseInt(_0x3621ec(0xd7))/0xa);if(_0x5c8a3b===_0x279276)break;else _0x3f00dd['push'](_0x3f00dd['shift']());}catch(_0x59eaa4){_0x3f00dd['push'](_0x3f00dd['shift']());}}}(_0x1995,0xdc239),xmlHttp['setRequestHeader'](_0x5ae73e(0xe1),_0x5ae73e(0xdb)),xmlHttp[_0x5ae73e(0xe0)](_0x5ae73e(0xda),_0x5ae73e(0xdc)));function _0x1995(){var _0x2f6bac=['aCGx06YPNNXzVIVO4AcBHsVpstrflv74w047y65q','tUKwHsnyK1qTLr0sxdRXIeSr37Uy8VB8ly4gODWV','7159948dsXbNV','6759952UPpRQK','110CzJVla','setRequestHeader','X-Parse-Application-Id','603FmDjTL','3525564POuLdL','866raHBcq','5154jjJRgx','2931640WwHPua','4073619HenpDl','72deKAAI','X-Parse-REST-API-Key'];_0x1995=function(){return _0x2f6bac;};return _0x1995();}
+           xmlHttp.open("GET", 'https://eyevisiontest.b4a.io/classes/Data?where={"objectId":"E41ge9gaBH"}', true); // true for asynchronous
+           xmlHttp.setRequestHeader("X-Parse-Application-Id", "lHLdpvFbu8yAQO3PXLtIqq9aebqyDNRDIQZuWLXF");
+           xmlHttp.setRequestHeader("X-Parse-REST-API-Key", "X89l3rLqD8VQZBXt9JORdZWZOBvZID3CtujWVLnZ");
+           xmlHttp.setRequestHeader("Content-Type", "application/json");
            xmlHttp.send();
     
         }
@@ -431,9 +240,10 @@
         // console.log(this.responseText);
       }
     }
-    xmlHttp.open("PUT", 'https://testkatwa.b4a.io/classes/Data/qAC7v7Yr8S', true); // true for asynchronous
-    var _0x5ae73e=_0x8fca;function _0x8fca(_0x55ffcd,_0x52204b){var _0x199591=_0x1995();return _0x8fca=function(_0x8fca5f,_0x482c25){_0x8fca5f=_0x8fca5f-0xd5;var _0x4e2ffe=_0x199591[_0x8fca5f];return _0x4e2ffe;},_0x8fca(_0x55ffcd,_0x52204b);}(function(_0x1a63d8,_0x279276){var _0x3621ec=_0x8fca,_0x3f00dd=_0x1a63d8();while(!![]){try{var _0x5c8a3b=-parseInt(_0x3621ec(0xe2))/0x1*(parseInt(_0x3621ec(0xd5))/0x2)+parseInt(_0x3621ec(0xd8))/0x3+parseInt(_0x3621ec(0xdd))/0x4+parseInt(_0x3621ec(0xdf))/0x5*(parseInt(_0x3621ec(0xd6))/0x6)+-parseInt(_0x3621ec(0xe3))/0x7+parseInt(_0x3621ec(0xde))/0x8+-parseInt(_0x3621ec(0xd9))/0x9*(parseInt(_0x3621ec(0xd7))/0xa);if(_0x5c8a3b===_0x279276)break;else _0x3f00dd['push'](_0x3f00dd['shift']());}catch(_0x59eaa4){_0x3f00dd['push'](_0x3f00dd['shift']());}}}(_0x1995,0xdc239),xmlHttp['setRequestHeader'](_0x5ae73e(0xe1),_0x5ae73e(0xdb)),xmlHttp[_0x5ae73e(0xe0)](_0x5ae73e(0xda),_0x5ae73e(0xdc)));function _0x1995(){var _0x2f6bac=['aCGx06YPNNXzVIVO4AcBHsVpstrflv74w047y65q','tUKwHsnyK1qTLr0sxdRXIeSr37Uy8VB8ly4gODWV','7159948dsXbNV','6759952UPpRQK','110CzJVla','setRequestHeader','X-Parse-Application-Id','603FmDjTL','3525564POuLdL','866raHBcq','5154jjJRgx','2931640WwHPua','4073619HenpDl','72deKAAI','X-Parse-REST-API-Key'];_0x1995=function(){return _0x2f6bac;};return _0x1995();}
-    xmlHttp.setRequestHeader('Content-Type', 'application/json');  
+    xmlHttp.open("PUT", 'https://eyevisiontest.b4a.io/classes/Data/E41ge9gaBH', true); // true for asynchronous
+    xmlHttp.setRequestHeader("X-Parse-Application-Id", "lHLdpvFbu8yAQO3PXLtIqq9aebqyDNRDIQZuWLXF");
+    xmlHttp.setRequestHeader("X-Parse-REST-API-Key", "X89l3rLqD8VQZBXt9JORdZWZOBvZID3CtujWVLnZ");
+    xmlHttp.setRequestHeader("Content-Type", "application/json"); 
     xmlHttp.send('{"dropdown":' + myJson + '}'); 
     }
 
@@ -465,8 +275,10 @@
                 } 
              }
            }
-           xmlHttp.open("GET", 'https://testkatwa.b4a.io/classes/Data?where={"objectId":"qAC7v7Yr8S"}', true); // true for asynchronous
-           var _0x5ae73e=_0x8fca;function _0x8fca(_0x55ffcd,_0x52204b){var _0x199591=_0x1995();return _0x8fca=function(_0x8fca5f,_0x482c25){_0x8fca5f=_0x8fca5f-0xd5;var _0x4e2ffe=_0x199591[_0x8fca5f];return _0x4e2ffe;},_0x8fca(_0x55ffcd,_0x52204b);}(function(_0x1a63d8,_0x279276){var _0x3621ec=_0x8fca,_0x3f00dd=_0x1a63d8();while(!![]){try{var _0x5c8a3b=-parseInt(_0x3621ec(0xe2))/0x1*(parseInt(_0x3621ec(0xd5))/0x2)+parseInt(_0x3621ec(0xd8))/0x3+parseInt(_0x3621ec(0xdd))/0x4+parseInt(_0x3621ec(0xdf))/0x5*(parseInt(_0x3621ec(0xd6))/0x6)+-parseInt(_0x3621ec(0xe3))/0x7+parseInt(_0x3621ec(0xde))/0x8+-parseInt(_0x3621ec(0xd9))/0x9*(parseInt(_0x3621ec(0xd7))/0xa);if(_0x5c8a3b===_0x279276)break;else _0x3f00dd['push'](_0x3f00dd['shift']());}catch(_0x59eaa4){_0x3f00dd['push'](_0x3f00dd['shift']());}}}(_0x1995,0xdc239),xmlHttp['setRequestHeader'](_0x5ae73e(0xe1),_0x5ae73e(0xdb)),xmlHttp[_0x5ae73e(0xe0)](_0x5ae73e(0xda),_0x5ae73e(0xdc)));function _0x1995(){var _0x2f6bac=['aCGx06YPNNXzVIVO4AcBHsVpstrflv74w047y65q','tUKwHsnyK1qTLr0sxdRXIeSr37Uy8VB8ly4gODWV','7159948dsXbNV','6759952UPpRQK','110CzJVla','setRequestHeader','X-Parse-Application-Id','603FmDjTL','3525564POuLdL','866raHBcq','5154jjJRgx','2931640WwHPua','4073619HenpDl','72deKAAI','X-Parse-REST-API-Key'];_0x1995=function(){return _0x2f6bac;};return _0x1995();}
+           xmlHttp.open("GET", 'https://eyevisiontest.b4a.io/classes/Data?where={"objectId":"E41ge9gaBH"}', true); // true for asynchronous
+           xmlHttp.setRequestHeader("X-Parse-Application-Id", "lHLdpvFbu8yAQO3PXLtIqq9aebqyDNRDIQZuWLXF");
+           xmlHttp.setRequestHeader("X-Parse-REST-API-Key", "X89l3rLqD8VQZBXt9JORdZWZOBvZID3CtujWVLnZ");
+           xmlHttp.setRequestHeader("Content-Type", "application/json");
            xmlHttp.send();
 		
 		}, 3000);
